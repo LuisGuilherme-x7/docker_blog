@@ -1,0 +1,17 @@
+{% extends './base.html'%}
+
+{% block content %}
+<div class="form-group">
+  {% block info %}
+  Cadastre sua dúvida no forum
+  {% endblock %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <br>
+    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Cadastrar Conteúdo</button>
+  </form>
+</div>
+
+
+{% endblock %}

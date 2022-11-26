@@ -1,0 +1,36 @@
+{% extends './base.html'%}
+
+
+{% block info %}
+Compartilhamento de Conteúdos <br>
+Aqui você pode <strong> Encontrar </strong>conteúdos que foram compartilhados por outros estudantes.
+{% endblock %}
+
+{% block content %}
+
+<div class="form-group">
+  <br>
+  <a class="btn btn-primary" href="{% url 'forum:create_new'%}">Novo Post</a>
+
+  {% for post in post_list %}
+  <section class="section">
+
+    <hr>
+    <div class="container">
+      <h1 class="title">
+        <a href="{% url 'forum:post_forum' post.id %}">{{post.title}}</a>
+      </h1>
+      <h2 class="subtitle">
+        {{post.subtitle|safe}}
+      </h2>
+    </div>
+
+
+  </section>
+  {% endfor %}
+
+
+</div>
+
+
+{% endblock %}
